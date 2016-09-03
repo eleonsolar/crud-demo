@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `control_estudio` /*!40100 DEFAULT CHARACTER SET big5 */;
-USE `control_estudio`;
+CREATE DATABASE  IF NOT EXISTS `crud_demo` /*!40100 DEFAULT CHARACTER SET big5 */;
+USE `crud_demo`;
 -- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: control_estudio
