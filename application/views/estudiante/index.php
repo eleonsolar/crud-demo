@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema control de estudio</title>
+    <title>Student management web app</title>
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,23 +17,23 @@
 <body>
 
     <div class="container">
-        <h1 style="font-size:20pt;font-weight:bold;text-decoration:underline;">Sistema control de estudio</h1>
+        <h1 style="font-size:20pt;font-weight:bold;text-decoration:underline;">Student management</h1>
         <br />
         <br />
-        <h3>Estudiantes</h3>
+        <h3>Students</h3>
         <br />
-        <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i> Agregar estudiante</button>
-        <button class="btn btn-default" onclick="reloadTable()"><i class="glyphicon glyphicon-refresh"></i> Recargar</button>
+        <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i>Add</button>
+        <button class="btn btn-default" onclick="reloadTable()"><i class="glyphicon glyphicon-refresh"></i>Reload</button>
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Cedula</th>
-                    <th>Carrera</th>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>DNI</th>
+                    <th>course</th>
                     <th style="width:150px;">Action</th>
                 </tr>
             </thead>
@@ -42,10 +42,10 @@
             <tfoot>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Cedula</th>
-                    <th>Carrera</th>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>DNI</th>
+                    <th>course</th>
                     <th>Action</th>
                 </tr>
             </tfoot>
@@ -109,7 +109,7 @@ function addEstudiante()
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Agregar estudiante'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Add student'); // Set Title to Bootstrap modal title
 }
 
 function editEstudiante(id)
@@ -133,12 +133,12 @@ function editEstudiante(id)
             $('[name="estu_cedula"]').val(data.estu_cedula);
             $('[name="carr_id"]').val(data.carr_id);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Editar Estudiante'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-            alert('Error obteniendo data desde ajax');
+            alert('Error getting data from ajax');
         }
     });
 }
@@ -150,7 +150,7 @@ function reloadTable()
 
 function save()
 {
-    $('#btnSave').text('guardando...'); //change button text
+    $('#btnSave').text('saving...'); //change button text
     $('#btnSave').attr('disabled',true); //set button disable
     var url;
 
@@ -199,7 +199,7 @@ function save()
 
 function deleteEstudiante(id)
 {
-    if(confirm('¿Estas seguro de eliminar al estudiante?'))
+    if(confirm('Are you sure to remove the student?'))
     {
         // ajax delete data to database
         $.ajax({
@@ -229,7 +229,7 @@ function deleteEstudiante(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Formulario estudiante</h3>
+                <h3 class="modal-title">Form student</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
@@ -242,34 +242,34 @@ function deleteEstudiante(id)
                           </div>
                       </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nombre</label>
+                            <label class="control-label col-md-3">Name</label>
                             <div class="col-md-9">
                                 <input name="estu_nombre" placeholder="Nombre estudiante" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Apellido</label>
+                            <label class="control-label col-md-3">Lastname</label>
                             <div class="col-md-9">
                                 <input name="estu_apellido" placeholder="Apellido estudiante" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Cédula</label>
+                            <label class="control-label col-md-3">DNI</label>
                             <div class="col-md-9">
                                 <input name="estu_cedula" placeholder="Cédula" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Carrera</label>
+                            <label class="control-label col-md-3">Course</label>
                             <div class="col-md-9">
                                 <select name="carr_id" class="form-control">
-                                    <option value="">--Seleccionar carrera--</option>
-                                    <option value="1">Ingenieria de Sistemas</option>
-                                    <option value="2">Sociologia</option>
-                                    <option value="3">Contabilidad</option>
+                                    <option value="">--Select course--</option>
+                                    <option value="1">System engineering</option>
+                                    <option value="2">Sociology</option>
+                                    <option value="3">Accounting</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
@@ -278,8 +278,8 @@ function deleteEstudiante(id)
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Guardar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

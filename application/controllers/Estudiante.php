@@ -27,8 +27,8 @@ class Estudiante extends CI_Controller{
           $row[] = $estudiante->estu_cedula;
           $row[] = $estudiante->carr_id;
           //add html for action
-          $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onclick="editEstudiante('."'".$estudiante->estu_id."'".')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>
-                <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="deleteEstudiante('."'".$estudiante->estu_id."'".')"><i class="glyphicon glyphicon-trash"></i> Eliminar</a>';
+          $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onclick="editEstudiante('."'".$estudiante->estu_id."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="deleteEstudiante('."'".$estudiante->estu_id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
           $data[] = $row;
       }
       $output = array(
@@ -89,28 +89,28 @@ class Estudiante extends CI_Controller{
       if($this->input->post('estu_nombre') == '')
       {
           $data['inputerror'][] = 'estu_nombre';
-          $data['error_string'][] = 'Primer nombre es requerido';
+          $data['error_string'][] = 'First name is required';
           $data['status'] = FALSE;
       }
 
       if($this->input->post('estu_apellido') == '')
       {
           $data['inputerror'][] = 'estu_apellido';
-          $data['error_string'][] = 'Primer apellido es requerido';
+          $data['error_string'][] = 'First lastname is required';
           $data['status'] = FALSE;
       }
 
       if($this->input->post('estu_cedula') == '')
       {
           $data['inputerror'][] = 'estu_cedula';
-          $data['error_string'][] = 'Cedula es requerida';
+          $data['error_string'][] = 'DNI is required';
           $data['status'] = FALSE;
       }
 
       if($this->input->post('carr_id') == '')
       {
           $data['inputerror'][] = 'carr_id';
-          $data['error_string'][] = 'Debe seleccionar una carrera';
+          $data['error_string'][] = 'You should select a course ';
           $data['status'] = FALSE;
       }
 
