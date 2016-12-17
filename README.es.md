@@ -12,3 +12,7 @@
 2. Colocalo en el servidor http
 3. Restaura el backup de la base de datos. Eso está en la carpeta "database".
 4. Terminado.
+
+###Demo###
+
+Ver [ demo ]( http://eleonsolar.com/demo/crud )

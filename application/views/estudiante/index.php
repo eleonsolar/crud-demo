@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student management web app </title>
+    <title>CRUD Student management</title>
     <link href="http://localhost/crud-demo/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://localhost/crud-demo/assets/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -16,11 +16,31 @@
     </head>
 <body>
 
-    <div class="container">
-        <h1 style="font-size:20pt;font-weight:bold;text-decoration:underline;">Student management</h1>
-        <br />
-        <br />
-        <h3>Students</h3>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="color:#fff" href="http://localhost/crud-demo/">CRUD with Codeigniter</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav ">
+            <li><a href="http://eleonsolar.com">About me</a></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/eleonsolar/crud-demo">Github</a></li>
+          </div>
+        </div><!--/.nav-collapse -->
+
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top:100px">
+        <h3>Student management</h3>
         <br />
         <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i>Add</button>
         <button class="btn btn-default" onclick="reloadTable()"><i class="glyphicon glyphicon-refresh"></i>Reload</button>
@@ -182,7 +202,7 @@ function save()
                     $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
                 }
             }
-            $('#btnSave').text('Guardar'); //change button text
+            $('#btnSave').text('Save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
 
 
@@ -190,7 +210,7 @@ function save()
         error: function (jqXHR, textStatus, errorThrown)
         {
             alert('Error adding / update data');
-            $('#btnSave').text('Guardar'); //change button text
+            $('#btnSave').text('Save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
 
         }
