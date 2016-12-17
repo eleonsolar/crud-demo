@@ -1,5 +1,9 @@
 #Demostración de CRUD hecho con Codeigniter framework#
 
+###Demo###
+
+Ver [ demo ]( http://eleonsolar.com/demo/crud )
+
 ###Requerimientos###
 
 1. PHP 5+.
@@ -12,7 +16,3 @@
 2. Colocalo en el servidor http
 3. Restaura el backup de la base de datos. Eso está en la carpeta "database".
 4. Terminado.
-
-###Demo###
-
-Ver [ demo ]( http://eleonsolar.com/demo/crud )
