@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student management web app </title>
-    <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
+    <link href="http://localhost/crud-demo/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost/crud-demo/assets/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,10 +51,10 @@
             </tfoot>
         </table>
     </div>
-<script src="<?php echo base_url('assets/jquery/jquery.js')?>"></script>
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-<script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
-<script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
+<script src="http://localhost/crud-demo/assets/jquery/jquery.js"></script>
+<script src="http://localhost/crud-demo/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://localhost/crud-demo/assets/datatables/js/jquery.dataTables.min.js"></script>
+<script src="http://localhost/crud-demo/assets/datatables/js/dataTables.bootstrap.js"></script>
 <script type="text/javascript">
 
 var save_method; //for save method string
