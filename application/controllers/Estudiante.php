@@ -5,12 +5,14 @@ class Estudiante extends CI_Controller{
   {
       parent::__construct();
       $this->load->model('Estudiante_model');
+      $this->load->model('Carrera_model');
   }
 
   public function index()
   {
       $this->load->helper('url');
-      $this->load->view('estudiante/index');
+      $data['list'] = $this->Carrera_model->get_rows();
+      $this->load->view('estudiante/index', $data);
   }
 
   public function ajax_list()

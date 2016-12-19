@@ -1,4 +1,4 @@
-#Demostración de CRUD hecho con Codeigniter framework#
+#CRUD hecho con Codeigniter, bootstrap modals y libreria datatable#
 
 ###Demo###
 

@@ -288,9 +288,11 @@ function deleteEstudiante(id)
                             <div class="col-md-9">
                                 <select name="carr_nombre" class="form-control">
                                     <option value="">--Select course--</option>
-                                    <option value="1">System engineering</option>
-                                    <option value="2">Sociology</option>
-                                    <option value="3">Accounting</option>
+                                    <?php
+                                    foreach($list as $value){
+                                      echo '<option value="'.$value->carr_id.'">'.$value->carr_nombre.'</option>';                                  
+                                    }
+                                    ?>
                                 </select>
                                 <span class="help-block"></span>
                             </div>

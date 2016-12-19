@@ -1,4 +1,4 @@
-#CRUD made with Codeigniter framework#
+#Ajax CRUD Codeigniter with Bootstrap modals and Datatables#
 
 ###Demo###
 
