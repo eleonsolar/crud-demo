@@ -25,24 +25,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="color:#fff" href="http://localhost/crud-demo/">CRUD Codeigniter</a>
+          <a class="navbar-brand"  href="http://localhost/crud-demo/">Home</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav ">
             <li><a href="http://eleonsolar.com">About me</a></li>
           </ul>
           <div class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/eleonsolar/crud-demo">Github</a></li>
+            <li><a href="https://github.com/eleonsolar/crud-demo">Github (Source code)</a></li>
           </div>
         </div><!--/.nav-collapse -->
-
       </div>
     </nav>
 
     <div class="container" style="margin-top:100px">
+        <h2>Ajax CRUD Codeigniter with Bootstrap modals and Datatables</h2>
+        <br />
         <h3>Student management</h3>
         <br />
-        <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i>Add</button>
+        <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i>Add Student</button>
         <button class="btn btn-default" onclick="reloadTable()"><i class="glyphicon glyphicon-refresh"></i>Reload</button>
         <br />
         <br />

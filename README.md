@@ -2,7 +2,7 @@
 
 ###Demo###
 
-View [ demo ]( http://eleonsolar.com/demo/crud )
+Preview [ demo ]( http://eleonsolar.com/demo/crud )
 
 ###Requirements###
 
