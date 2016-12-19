@@ -32,13 +32,13 @@
             <li><a href="http://eleonsolar.com">About me</a></li>
           </ul>
           <div class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/eleonsolar/crud-demo">Github (Source code)</a></li>
+            <li><a href="https://github.com/eleonsolar/crud-demo" style="color:#F3F3F3">Github (Source code)</a></li>
           </div>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container" style="margin-top:100px">
+    <div class="container" style="margin-top:60px">
         <h2>Ajax CRUD Codeigniter with Bootstrap modals and Datatables</h2>
         <br />
         <h3>Student management</h3>
@@ -152,7 +152,7 @@ function editEstudiante(id)
             $('[name="estu_nombre"]').val(data.estu_nombre);
             $('[name="estu_apellido"]').val(data.estu_apellido);
             $('[name="estu_cedula"]').val(data.estu_cedula);
-            $('[name="carr_id"]').val(data.carr_id);
+            $('[name="carr_nombre"]').val(data.carr_id);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit'); // Set title to Bootstrap modal title
 
@@ -265,28 +265,28 @@ function deleteEstudiante(id)
                         <div class="form-group">
                             <label class="control-label col-md-3">Name</label>
                             <div class="col-md-9">
-                                <input name="estu_nombre" placeholder="Nombre estudiante" class="form-control" type="text">
+                                <input name="estu_nombre" placeholder="Student name" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Lastname</label>
                             <div class="col-md-9">
-                                <input name="estu_apellido" placeholder="Apellido estudiante" class="form-control" type="text">
+                                <input name="estu_apellido" placeholder="Student lastname" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">DNI</label>
                             <div class="col-md-9">
-                                <input name="estu_cedula" placeholder="Cédula" class="form-control" type="text">
+                                <input name="estu_cedula" placeholder="DNI" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Course</label>
                             <div class="col-md-9">
-                                <select name="carr_id" class="form-control">
+                                <select name="carr_nombre" class="form-control">
                                     <option value="">--Select course--</option>
                                     <option value="1">System engineering</option>
                                     <option value="2">Sociology</option>

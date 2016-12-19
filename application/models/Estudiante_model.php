@@ -2,8 +2,8 @@
 class Estudiante_model extends CI_Model {
 
     var $table = 'tbl_estudiante';
-    var $column = array('estu_nombre','estu_apellido','estu_cedula','carr_id'); //set column field database for order and search
-    var $order = array('estu_id' => 'asc'); // default order
+    var $column = array('estu_nombre','estu_apellido','estu_cedula','tbl_carrera.carr_nombre'); //set column field database for order and search
+    var $order = array('estu_id' => 'desc'); // default order
 
     function __construct()
     {
@@ -48,6 +48,8 @@ class Estudiante_model extends CI_Model {
     function get_datatables()
     {
         $this->_get_datatables_query();
+        $this->db->select('estu_id, estu_nombre, estu_apellido, estu_cedula, tbl_carrera.carr_nombre');
+        $this->db->join('tbl_carrera', 'tbl_carrera.carr_id = tbl_estudiante.carr_id');
         if($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
@@ -83,7 +85,7 @@ class Estudiante_model extends CI_Model {
     }
 
     public function update($where, $data)
-    {      
+    {
         $this->db->update($this->table, $data, $where);
         return $this->db->affected_rows();
     }

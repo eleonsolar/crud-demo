@@ -25,7 +25,7 @@ class Estudiante extends CI_Controller{
           $row[] = $estudiante->estu_nombre;
           $row[] = $estudiante->estu_apellido;
           $row[] = $estudiante->estu_cedula;
-          $row[] = $estudiante->carr_id;
+          $row[] = $estudiante->carr_nombre;
           //add html for action
           $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onclick="editEstudiante('."'".$estudiante->estu_id."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                 <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="deleteEstudiante('."'".$estudiante->estu_id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
@@ -54,7 +54,7 @@ class Estudiante extends CI_Controller{
               'estu_nombre' => $this->input->post('estu_nombre'),
               'estu_apellido' => $this->input->post('estu_apellido'),
               'estu_cedula' => $this->input->post('estu_cedula'),
-              'carr_id' => $this->input->post('carr_id')
+              'carr_id' => $this->input->post('carr_nombre')
           );
       $insert = $this->Estudiante_model->save($data);
       echo json_encode(array("status" => TRUE));
@@ -67,7 +67,7 @@ class Estudiante extends CI_Controller{
               'estu_nombre' => $this->input->post('estu_nombre'),
               'estu_apellido' => $this->input->post('estu_apellido'),
               'estu_cedula' => $this->input->post('estu_cedula'),
-              'carr_id' => $this->input->post('carr_id')
+              'carr_id' => $this->input->post('carr_nombre')
           );
       $this->Estudiante_model->update(array('estu_id' => $this->input->post('estu_id')), $data);
       echo json_encode(array("status" => TRUE));
@@ -107,9 +107,9 @@ class Estudiante extends CI_Controller{
           $data['status'] = FALSE;
       }
 
-      if($this->input->post('carr_id') == '')
+      if($this->input->post('carr_nombre') == '')
       {
-          $data['inputerror'][] = 'carr_id';
+          $data['inputerror'][] = 'carr_nombre';
           $data['error_string'][] = 'You should select a course ';
           $data['status'] = FALSE;
       }
