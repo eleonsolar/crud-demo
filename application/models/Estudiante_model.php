@@ -13,7 +13,9 @@ class Estudiante_model extends CI_Model {
 
     private function _get_datatables_query()
     {
+        $this->db->select('estu_id, estu_nombre, estu_apellido, estu_cedula, tbl_carrera.carr_nombre');
         $this->db->from($this->table);
+        $this->db->join('tbl_carrera', 'tbl_carrera.carr_id = tbl_estudiante.carr_id');
         $i = 0;
         foreach ($this->column as $item) // loop column
         {
@@ -48,8 +50,6 @@ class Estudiante_model extends CI_Model {
     function get_datatables()
     {
         $this->_get_datatables_query();
-        $this->db->select('estu_id, estu_nombre, estu_apellido, estu_cedula, tbl_carrera.carr_nombre');
-        $this->db->join('tbl_carrera', 'tbl_carrera.carr_id = tbl_estudiante.carr_id');
         if($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();

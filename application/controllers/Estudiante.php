@@ -93,6 +93,15 @@ class Estudiante extends CI_Controller{
           $data['inputerror'][] = 'estu_nombre';
           $data['error_string'][] = 'First name is required';
           $data['status'] = FALSE;
+      }else{
+
+        if(!$this->_validate_string($this->input->post('estu_nombre')))
+        {
+          $data['inputerror'][] = 'estu_nombre';
+          $data['error_string'][] = 'Invalid value';
+          $data['status'] = FALSE;
+        }
+
       }
 
       if($this->input->post('estu_apellido') == '')
@@ -100,6 +109,15 @@ class Estudiante extends CI_Controller{
           $data['inputerror'][] = 'estu_apellido';
           $data['error_string'][] = 'First lastname is required';
           $data['status'] = FALSE;
+      }else{
+
+        if(!$this->_validate_string($this->input->post('estu_apellido')))
+        {
+          $data['inputerror'][] = 'estu_apellido';
+          $data['error_string'][] = 'Invalid value';
+          $data['status'] = FALSE;
+        }
+
       }
 
       if($this->input->post('estu_cedula') == '')
@@ -107,6 +125,14 @@ class Estudiante extends CI_Controller{
           $data['inputerror'][] = 'estu_cedula';
           $data['error_string'][] = 'DNI is required';
           $data['status'] = FALSE;
+      }else{
+
+        if(!$this->_validate_number($this->input->post('estu_cedula')))
+        {
+          $data['inputerror'][] = 'estu_cedula';
+          $data['error_string'][] = 'Invalid value';
+          $data['status'] = FALSE;
+        }
       }
 
       if($this->input->post('carr_nombre') == '')
@@ -121,5 +147,33 @@ class Estudiante extends CI_Controller{
           echo json_encode($data);
           exit();
       }
+  }
+
+  private function _validate_string($string)
+  {
+      $allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      for ($i=0; $i<strlen($string); $i++)
+      {
+          if (strpos($allowed, substr($string,$i,1))===FALSE)
+          {
+              return FALSE;
+          }
+      }
+
+     return TRUE;
+  }
+
+  private function _validate_number($string)
+  {
+      $allowed = "0123456789";
+      for ($i=0; $i<strlen($string); $i++)
+      {
+          if (strpos($allowed, substr($string,$i,1))===FALSE)
+          {
+              return FALSE;
+          }
+      }
+
+     return TRUE;
   }
 }

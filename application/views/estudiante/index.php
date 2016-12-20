@@ -40,9 +40,7 @@
 
     <div class="container" style="margin-top:60px">
         <h2>Ajax CRUD Codeigniter with Bootstrap modals and Datatables</h2>
-        <br />
-        <h3>Student management</h3>
-        <br />
+        <h3 style="text-decoration:underline">Students</h3>
         <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i>Add Student</button>
         <button class="btn btn-default" onclick="reloadTable()"><i class="glyphicon glyphicon-refresh"></i>Reload</button>
         <br />
@@ -290,7 +288,7 @@ function deleteEstudiante(id)
                                     <option value="">--Select course--</option>
                                     <?php
                                     foreach($list as $value){
-                                      echo '<option value="'.$value->carr_id.'">'.$value->carr_nombre.'</option>';                                  
+                                      echo '<option value="'.$value->carr_id.'">'.$value->carr_nombre.'</option>';
                                     }
                                     ?>
                                 </select>
