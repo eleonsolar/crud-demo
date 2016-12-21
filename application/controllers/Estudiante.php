@@ -23,7 +23,7 @@ class Estudiante extends CI_Controller{
       foreach ($list as $estudiante) {
           $no++;
           $row = array();
-          $row[] = $estudiante->estu_id;
+          $row[] = '<input type="checkbox" class="data-check" value="'.$estudiante->estu_id.'" onclick="showBottomDelete()"/>';
           $row[] = $estudiante->estu_nombre;
           $row[] = $estudiante->estu_apellido;
           $row[] = $estudiante->estu_cedula;
@@ -80,6 +80,15 @@ class Estudiante extends CI_Controller{
       $this->Estudiante_model->delete_by_id($id);
       echo json_encode(array("status" => TRUE));
   }
+
+  public function ajax_list_delete()
+   {
+       $list_id = $this->input->post('id');
+       foreach ($list_id as $id) {
+           $this->Estudiante_model->delete_by_id($id);
+       }
+       echo json_encode(array("status" => TRUE));
+   }
 
   private function _validate()
   {

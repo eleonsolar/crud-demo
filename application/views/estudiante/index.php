@@ -43,12 +43,13 @@
         <h3 style="text-decoration:underline">Students</h3>
         <button class="btn btn-success" onclick="addEstudiante()"><i class="glyphicon glyphicon-plus"></i>Add Student</button>
         <button class="btn btn-default" onclick="reloadTable()"><i class="glyphicon glyphicon-refresh"></i>Reload</button>
+        <button id="deleteList" class="btn btn-danger" style="display: none;" onclick="deleteList()"><i class="glyphicon glyphicon-trash"></i>Delete list</button>
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th><input type="checkbox" id="check-all"></th>
                     <th>Name</th>
                     <th>Lastname</th>
                     <th>DNI</th>
@@ -60,7 +61,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>ID</th>
+                    <th></th>
                     <th>Name</th>
                     <th>Lastname</th>
                     <th>DNI</th>
@@ -96,11 +97,17 @@ $(document).ready(function() {
 
         //Set column definition initialisation properties.
         "columnDefs": [
-        {
-            "targets": [ -1 ], //last column
-            "orderable": false, //set not orderable
-        },
+            {
+                "targets": [ 0 ], //first column
+                "orderable": false, //set not orderable
+            },
+            {
+                "targets": [ -1 ], //last column
+                "orderable": false, //set not orderable
+            },
+
         ],
+
 
     });
     //set input/textarea/select event when change value, remove class error and remove text help block
@@ -117,9 +124,30 @@ $(document).ready(function() {
         $(this).next().empty();
     });
 
+    //check all
+    $("#check-all").click(function () {
+        $(".data-check").prop('checked', $(this).prop('checked'));
+        showBottomDelete();
+    });
+
+
+
 });
 
+function showBottomDelete()
+{
+  var total = 0;
 
+  $('.data-check').each(function()
+  {
+     total+= $(this).prop('checked');
+  });
+
+  if (total > 0)
+      $('#deleteList').show();
+  else
+      $('#deleteList').hide();
+}
 
 function addEstudiante()
 {
@@ -164,6 +192,7 @@ function editEstudiante(id)
 
 function reloadTable()
 {
+    $('#deleteList').hide();
     table.ajax.reload(null,false); //reload datatable ajax
 }
 
@@ -237,6 +266,46 @@ function deleteEstudiante(id)
             }
         });
 
+    }
+}
+
+function deleteList()
+{
+    var list_id = [];
+    $(".data-check:checked").each(function() {
+            list_id.push(this.value);
+    });
+    if(list_id.length > 0)
+    {
+        if(confirm('Are you sure delete this '+list_id.length+' data?'))
+        {
+            $.ajax({
+                type: "POST",
+                data: {id:list_id},
+                url: "index.php/estudiante/ajax_list_delete",
+                dataType: "JSON",
+                success: function(data)
+                {
+                    if(data.status)
+                    {
+                        reloadTable();
+                    }
+                    else
+                    {
+                        alert('Failed.');
+                    }
+
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+        }
+    }
+    else
+    {
+        alert('no data selected');
     }
 }
 
