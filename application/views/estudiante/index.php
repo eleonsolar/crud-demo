@@ -192,8 +192,8 @@ function editEstudiante(id)
 
 function reloadTable()
 {
-    $('#deleteList').hide();
     table.ajax.reload(null,false); //reload datatable ajax
+    $('#deleteList').hide();
 }
 
 function save()
