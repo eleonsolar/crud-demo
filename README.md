@@ -2,7 +2,7 @@
 
 ###Demo###
 
-Preview [ demo ]( http://edwardleon.com.ve/demo/crud )
+Preview [ demo ]( http://www.edwardleon.com.ve/demo/crud/ )
 
 ###Requirements###
 
